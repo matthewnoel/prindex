@@ -66,8 +66,7 @@ function formatDate(iso) {
 }
 
 function layout({ title, description, canonicalPath, ogImage, jsonLd, body, depth = 0 }) {
-  const assetBase = '../'.repeat(depth);
-  const cssPath = `${assetBase}styles.css`;
+  const cssPath = `${'../'.repeat(depth)}styles.css`;
   const canonical = `${config.siteUrl}${canonicalPath}`;
   return `<!doctype html>
 <html lang="en">
@@ -85,8 +84,6 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">\n<meta name="twitte
 <meta name="twitter:title" content="${escapeHtml(title)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
 <link rel="stylesheet" href="${cssPath}">
-<link rel="stylesheet" href="${assetBase}themes.css">
-<script>try{var t=localStorage.getItem('prindex-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>
 <body>
@@ -99,7 +96,6 @@ ${body}
 <footer class="site-footer">
 <p>Free and open source. Browse the code and files on <a href="https://github.com/${config.owner}" rel="me">GitHub</a>.</p>
 </footer>
-<script src="${assetBase}debug.js" defer></script>
 </body>
 </html>
 `;
@@ -238,8 +234,5 @@ await fs.writeFile(path.join(outDir, '404.html'), notFoundPage());
 await fs.writeFile(path.join(outDir, 'sitemap.xml'), sitemap(repos));
 await fs.writeFile(path.join(outDir, '.nojekyll'), '');
 await fs.copyFile(path.join(root, 'static', 'styles.css'), path.join(outDir, 'styles.css'));
-// Design Lab (temporary): theme explorations + the ?debug=1 widget.
-await fs.copyFile(path.join(root, 'static', 'themes.css'), path.join(outDir, 'themes.css'));
-await fs.copyFile(path.join(root, 'static', 'debug.js'), path.join(outDir, 'debug.js'));
 
 console.log(`Done. Wrote ${repos.length + 2} pages to ${path.relative(root, outDir)}/.`);

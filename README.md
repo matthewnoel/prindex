@@ -14,12 +14,6 @@ Each listed repo gets:
 - its own page at `/repos/<name>/` with the README rendered as HTML, relative images rewritten to `raw.githubusercontent.com`
 - SEO plumbing: unique title/meta description, canonical URL, Open Graph/Twitter tags, JSON-LD (`3DModel` per repo, `ItemList` on the index), and `sitemap.xml`
 
-## Design Lab (temporary)
-
-The site currently ships with a hidden design-exploration widget. Open any page with `?debug=1` appended (e.g. `https://matthewnoel.github.io/prindex/?debug=1`) to get a floating **Design Lab** panel that switches the whole site between candidate visual directions — *Current*, *Workshop* (engineering blueprint), *Showcase* (dark gallery), *Field Notes* (warm paper catalog), and *Hyper* (bold maker). The choice persists across pages via `localStorage`; "Exit design lab" resets everything. Normal visitors never see the widget or the themes.
-
-To remove the experiment, delete `static/themes.css`, `static/debug.js`, and their references in `scripts/build.mjs` (the two `<link>`/`<script>` lines in `layout()` and the two `copyFile` calls), plus this section.
-
 ## Local build
 
 ```sh
