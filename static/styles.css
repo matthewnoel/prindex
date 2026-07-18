@@ -1,22 +1,15 @@
-:root {
-  --bg: #ffffff;
-  --fg: #1a1f24;
-  --muted: #5b6570;
-  --accent: #0b6bcb;
-  --card-bg: #f6f8fa;
-  --border: #d9dee3;
-  color-scheme: light dark;
-}
+/* Workshop: engineering-blueprint look. Graph-paper background, navy
+   ink, safety orange, monospace labels. Fixed light scheme. */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14181c;
-    --fg: #e8ecef;
-    --muted: #9aa4ae;
-    --accent: #5aa9f9;
-    --card-bg: #1d2329;
-    --border: #323a42;
-  }
+:root {
+  --bg: #f7f5f0;
+  --fg: #16283e;
+  --muted: #5d6b7d;
+  --accent: #d9560b;
+  --card-bg: #ffffff;
+  --border: #b9c6d6;
+  --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  color-scheme: light;
 }
 
 * {
@@ -27,7 +20,11 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   line-height: 1.6;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(22, 60, 110, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 60, 110, 0.055) 1px, transparent 1px);
+  background-size: 24px 24px;
   color: var(--fg);
 }
 
@@ -42,18 +39,24 @@ a {
 }
 
 .site-header {
-  border-bottom: 1px solid var(--border);
+  background: var(--card-bg);
+  border-bottom: 2px solid var(--fg);
   padding: 0.75rem 1.25rem;
 }
 
 .site-name {
+  font-family: var(--mono);
   font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
   text-decoration: none;
   color: var(--fg);
 }
 
 .site-footer {
-  border-top: 1px solid var(--border);
+  background: var(--card-bg);
+  border-top: 2px solid var(--fg);
   padding: 1rem 1.25rem;
   color: var(--muted);
   font-size: 0.9rem;
@@ -62,6 +65,10 @@ a {
 
 h1 {
   line-height: 1.25;
+  font-size: 2.1rem;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--fg);
+  padding-bottom: 0.35rem;
 }
 
 .intro {
@@ -80,13 +87,13 @@ h1 {
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
   padding: 1rem 1.25rem;
+  box-shadow: 3px 3px 0 rgba(22, 60, 110, 0.08);
 }
 
 .card h2 {
   margin: 0 0 0.5rem;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
 }
 
 .card h2 a {
@@ -96,7 +103,10 @@ h1 {
 .card-meta,
 .repo-meta {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -114,8 +124,11 @@ h1 {
   color: #fff;
   text-decoration: none;
   padding: 0.4rem 0.9rem;
-  border-radius: 0.4rem;
   font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 3px 3px 0 rgba(22, 40, 62, 0.9);
 }
 
 .topics {
@@ -124,13 +137,13 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  font-family: var(--mono);
   font-size: 0.8rem;
 }
 
 .topics li {
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid var(--accent);
   color: var(--accent);
-  border-radius: 1rem;
   padding: 0.1rem 0.6rem;
 }
 
@@ -144,15 +157,14 @@ h1 {
 .readme img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.4rem;
 }
 
 .readme pre {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 0.4rem;
   padding: 0.75rem 1rem;
   overflow-x: auto;
+  box-shadow: 3px 3px 0 rgba(22, 60, 110, 0.08);
 }
 
 .readme code {
@@ -169,4 +181,5 @@ h1 {
 .readme td {
   border: 1px solid var(--border);
   padding: 0.35rem 0.7rem;
+  background: var(--card-bg);
 }
