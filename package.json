@@ -1,0 +1,16 @@
+{
+  "name": "prindex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static SEO index site for 3D-print GitHub repos, deployed to Firebase Hosting",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}
