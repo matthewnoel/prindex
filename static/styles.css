@@ -1,11 +1,11 @@
 /* Workshop: engineering-blueprint look. Graph-paper background, navy
-   ink, safety orange, monospace labels. Fixed light scheme. */
+   ink, royal blue, monospace labels. Fixed light scheme. */
 
 :root {
   --bg: #f7f5f0;
   --fg: #16283e;
   --muted: #5d6b7d;
-  --accent: #d9560b;
+  --accent: #4169e1;
   --card-bg: #ffffff;
   --border: #b9c6d6;
   --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
