@@ -1,6 +1,6 @@
 # prindex
 
-A static index site for my 3D-printable designs on GitHub, built so the models are discoverable by search engines instead of being buried in individual repos.
+A static index site for my 3D-printable designs on GitHub, built so the models are discoverable by search engines instead of being buried in individual repos. Live at <https://matthewnoel.github.io/prindex/>.
 
 Every build **scrapes GitHub from scratch** — it fetches all of my public repos, keeps the ones tagged with the `prindex` topic, and regenerates the entire site into `public/`, overwriting whatever was there before. There is no stored state.
 
@@ -12,7 +12,7 @@ Each listed repo gets:
 
 - a card on the homepage
 - its own page at `/repos/<name>/` with the README rendered as HTML, relative images rewritten to `raw.githubusercontent.com`
-- SEO plumbing: unique title/meta description, canonical URL, Open Graph/Twitter tags, JSON-LD (`3DModel` per repo, `ItemList` on the index), `sitemap.xml`, and `robots.txt`
+- SEO plumbing: unique title/meta description, canonical URL, Open Graph/Twitter tags, JSON-LD (`3DModel` per repo, `ItemList` on the index), and `sitemap.xml`
 
 ## Local build
 
@@ -28,14 +28,13 @@ Site settings (owner, topic, site URL, title, description) live in [`site.config
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds and deploys to Firebase Hosting:
+`.github/workflows/deploy.yml` builds the site and deploys it to GitHub Pages:
 
 - **daily** at 06:00 UTC (picks up new/edited repos)
 - on every **push to `main`**
 - manually via **Run workflow** in the Actions tab
 
-### One-time Firebase setup
+### One-time setup
 
-1. Create a Firebase project at <https://console.firebase.google.com> and enable Hosting.
-2. Put the project ID in [`.firebaserc`](.firebaserc) (currently a `prindex` placeholder) and update `siteUrl` in `site.config.json` to match (e.g. `https://<project-id>.web.app`).
-3. Create a deploy service account and add it as the `FIREBASE_SERVICE_ACCOUNT` repo secret. Easiest way: run `firebase init hosting:github` locally, which creates the service account and secret for you — or create a service account with the *Firebase Hosting Admin* role in the Google Cloud console and paste its JSON key into the secret manually.
+1. Repo **Settings → Pages → Source: GitHub Actions**. That's it — the workflow uses the built-in token, no secrets needed.
+2. Optional but recommended: submit `https://matthewnoel.github.io/prindex/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) to speed up indexing.

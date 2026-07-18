@@ -232,10 +232,7 @@ for (const repo of repos) {
 await fs.writeFile(path.join(outDir, 'index.html'), indexPage(repos));
 await fs.writeFile(path.join(outDir, '404.html'), notFoundPage());
 await fs.writeFile(path.join(outDir, 'sitemap.xml'), sitemap(repos));
-await fs.writeFile(
-  path.join(outDir, 'robots.txt'),
-  `User-agent: *\nAllow: /\n\nSitemap: ${config.siteUrl}/sitemap.xml\n`
-);
+await fs.writeFile(path.join(outDir, '.nojekyll'), '');
 await fs.copyFile(path.join(root, 'static', 'styles.css'), path.join(outDir, 'styles.css'));
 
 console.log(`Done. Wrote ${repos.length + 2} pages to ${path.relative(root, outDir)}/.`);
