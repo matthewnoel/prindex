@@ -103,7 +103,7 @@ ${body}
 
 function repoPage(repo, readmeHtml) {
   const displayName = titleize(repo.name);
-  const description = repo.description || `${displayName}, a free 3D-printable design by ${config.owner}.`;
+  const description = repo.description || `${displayName}, by ${config.owner}.`;
   const ogImage = `https://opengraph.githubassets.com/1/${repo.full_name}`;
   const jsonLd = {
     '@context': 'https://schema.org',
