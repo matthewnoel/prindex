@@ -172,6 +172,7 @@ ${repo.topics.length ? `<ul class="topics">${repo.topics.map((t) => `<li>${escap
     .join('\n');
   const body = `<h1>${escapeHtml(config.title)}</h1>
 <p class="intro">${escapeHtml(config.description)}</p>
+<p class="upsell">Several of these were designed with <a href="https://github.com/matthewnoel/partwright">Partwright</a>, my toolkit for building 3D-printable parts with build123d.</p>
 ${repos.length ? `<ul class="card-grid">\n${cards}\n</ul>` : '<p>No models published yet — check back soon.</p>'}`;
   return layout({
     title: config.title,

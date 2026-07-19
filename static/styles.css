@@ -82,6 +82,12 @@ h1 {
   max-width: 44rem;
 }
 
+.upsell {
+  color: var(--muted);
+  font-size: 0.85rem;
+  max-width: 44rem;
+}
+
 .card-grid {
   list-style: none;
   padding: 0;
