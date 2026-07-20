@@ -26,8 +26,8 @@ body {
   line-height: 1.6;
   background-color: var(--bg);
   background-image:
-    linear-gradient(rgba(22, 60, 110, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 60, 110, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(22, 60, 110, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 60, 110, 0.025) 1px, transparent 1px);
   background-size: 24px 24px;
   color: var(--fg);
 }
